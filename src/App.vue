@@ -1,6 +1,23 @@
-<script setup></script>
+<script setup>
+import NavBar from "@/components/navigator/NavBar.vue";
+import MainComponent from "@/components/main/Main.vue";
+import CalenderComponent from "@/components/calender/Calender.vue";
+</script>
 
 <template>
-  <h1 class="text-color_1 font-bold">Hello world</h1>
-  <mdicon name="home" />
+  <div class="grid grid-cols-12 gap-2 h-screen overflow-hidden">
+    <div class="col-span-9 bg-stone-50 rounded-r-[37px] flex gap-2">
+      <div class="w-[250px] h-full">
+        <NavBar />
+      </div>
+      <div class="flex-1">
+        <MainComponent />
+      </div>
+    </div>
+    <div class="bg-debug col-span-3">
+      <div>
+        <CalenderComponent />
+      </div>
+    </div>
+  </div>
 </template>
