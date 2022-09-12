@@ -7,6 +7,8 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "@mdi/js": "^7.0.96",
+    "mdi-vue": "^3.0.13",
     "vue": "^3.2.38"
   },
   "devDependencies": {

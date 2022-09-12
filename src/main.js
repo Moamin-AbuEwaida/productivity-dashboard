@@ -2,8 +2,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import './assets/base.css';
+// import mdiVue from 'mdi-vue/v3'
+
+import mdiVue from 'mdi-vue/v3'
+import * as mdijs from '@mdi/js'
 
 
-import './assets/base.css'
-
-createApp(App).mount('#app')
+const app = createApp(App);
+app.use(mdiVue, {icons: mdijs});
+app.mount('#app');
