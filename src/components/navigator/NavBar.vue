@@ -1,5 +1,7 @@
 <template>
-  <div class="relative grid grid-cols-12 border-r-2 h-full">
+  <div
+    class="relative lg:space-y-10 lg:block p-2 grid grid-cols-12 border-r-2 h-full"
+  >
     <div class="pl-10 col-span-6 flex justify-center items-center gap-4">
       <div
         class="bg-gradient-to-tl from-color_3 to-pink-500 rounded-xl p-2 text-white"
@@ -12,11 +14,11 @@
       <strong>Producteevy</strong>
     </div>
     <div class="lg:hidden col-span-6 flex justify-end items-center">
-      <button class="bg-stone-300 p-2 rounded-lg">
+      <button class="bg-stone-300 p-2 rounded-lg" @click="toggleMenu">
         <mdicon name="menu" />
       </button>
     </div>
-    <div class="col-span-12 lg:block">
+    <div class="col-span-12 hidden lg:block">
       <div class="relative w-full h-24 flex flex-col items-center gap-4">
         <img
           src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
@@ -35,26 +37,55 @@
         <a href="#" class="text-grey-500">Sara@test.com</a>
       </div>
     </div>
-    <div class="col-span-12 p-10">
+    <div
+      class="col-span-12 p-10 flex items-center justify-center"
+      v-if="menuIsActive"
+    >
       <NavBarMenu />
     </div>
-    <div class="absolute bottom-0 left-0">
-      <svg width="200" height="100" viewBox="-100 -100 200 200">
-        <polygon points="0,0 80,120 -80,120" fill="#234236" />
-        <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
-        <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
-        <rect x="-20" y="120" width="40" height="30" fill="brown" />
+    <div class="hidden lg:block absolute bottom-0 left-0 px-[25%]">
+      <svg width="100" height="100" viewBox="-100 -100 200 200">
+        <defs>
+          <path
+            id="branch"
+            d="
+        M 0 0 L 0 -90
+        M 0 -20 L 20 -34
+        M 0 -20 L -20 -34
+        M 0 -40 L 20 -54
+        M 0 -40 L -20 -54
+        M 0 -60 L 20 -74
+        M 0 -60 L -20 -74"
+            stroke="#E5C39C"
+            stroke-width="5"
+          />
+        </defs>
+
+        <use href="#branch" />
+        <use href="#branch" transform="rotate(60)" />
+        <use href="#branch" transform="rotate(120)" />
+        <use href="#branch" transform="rotate(180)" />
+        <use href="#branch" transform="rotate(240)" />
+        <use href="#branch" transform="rotate(300)" />
       </svg>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import NavBarMenu from "./NavBarMenu.vue";
-export default {
-  name: "NavBar",
-  components: { NavBarMenu },
-};
+import { ref } from "vue";
+
+const MODILE_BREAKPOINT = 1024;
+const width = ref(document.body.offsetWidth);
+const menuIsActive = ref(width.value > MODILE_BREAKPOINT);
+
+const toggleMenu = () => (menuIsActive.value = !menuIsActive.value);
+window.addEventListener("resize", () => {
+  width.value = document.body.offsetWidth;
+  menuIsActive.value = width.value > MODILE_BREAKPOINT;
+});
 </script>
 
 <style></style>
+~~
