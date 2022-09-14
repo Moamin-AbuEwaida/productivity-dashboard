@@ -26,7 +26,7 @@ export default {
         {
           name: "Mobile App Design",
           tasks: 12,
-          percentage: 96,
+          percentage: 26,
           people: 9,
           color: "color_2",
         },
@@ -34,7 +34,7 @@ export default {
           name: "Facebook Brand UI Kit",
           tasks: 22,
           percentage: 73,
-          people: 3,
+          people: 5,
           color: "color_3",
         },
       ],

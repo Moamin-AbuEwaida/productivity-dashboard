@@ -12,6 +12,7 @@
     </div>
     <button
       class="flex justify-center items-center w-7 h-7 border rounded-full"
+      @click="() => (task.active = !task.active)"
     >
       <mdicon
         name="check"

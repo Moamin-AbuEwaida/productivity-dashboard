@@ -9,7 +9,7 @@
         <h3 class="text-xl">ProPlan</h3>
         <p>More Productivity with Premium</p>
       </div>
-      <div class="absolute"></div>
+      <div class="absolute -bottom-10 -right-4"></div>
     </div>
   </div>
 </template>
