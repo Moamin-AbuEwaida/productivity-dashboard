@@ -76,7 +76,7 @@
 import NavBarMenu from "./NavBarMenu.vue";
 import { ref } from "vue";
 
-const MODILE_BREAKPOINT = 1024;
+const MODILE_BREAKPOINT = 1000;
 const width = ref(document.body.offsetWidth);
 const menuIsActive = ref(width.value > MODILE_BREAKPOINT);
 
